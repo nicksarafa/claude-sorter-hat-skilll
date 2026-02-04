@@ -1,0 +1,11 @@
+# Files to exclude from Surge deployment
+
+# Development files
+.DS_Store
+Thumbs.db
+
+# Documentation (already online)
+*.md
+
+# Source maps (if you add them later)
+*.map

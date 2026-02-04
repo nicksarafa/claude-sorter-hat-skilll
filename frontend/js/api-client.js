@@ -86,5 +86,5 @@ class APIClient {
   }
 }
 
-// Create global instance
-window.apiClient = new APIClient();
+// Create global instance with config
+window.apiClient = new APIClient(window.APP_CONFIG ? window.APP_CONFIG.API_BASE_URL : '');

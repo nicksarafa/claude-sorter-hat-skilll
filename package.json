@@ -6,7 +6,10 @@
   "scripts": {
     "start": "node backend/server.js",
     "dev": "nodemon backend/server.js",
-    "test": "echo \"No tests yet\" && exit 0"
+    "test": "echo \"No tests yet\" && exit 0",
+    "deploy": "./deploy-surge.sh",
+    "deploy:frontend": "cd frontend && surge . sorting-hat.surge.sh",
+    "install:surge": "npm install -g surge"
   },
   "keywords": [
     "harry-potter",
