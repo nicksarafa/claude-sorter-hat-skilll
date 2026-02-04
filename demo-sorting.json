@@ -1,0 +1,64 @@
+{
+  "demo_mode": "This file contains pre-generated demo sortings for testing without API key",
+  "sortings": [
+    {
+      "input": "A brave red dragon",
+      "deliberation": [
+        "Ahh, a dragon, you say?",
+        "Fearsome creatures, dragons are...",
+        "I see fire and courage here, burning bright...",
+        "But is there cunning? Every dragon hoards treasure...",
+        "No, no - the color tells the story. Bold scarlet!",
+        "This is a creature of action, not strategy.",
+        "Yes, quite clear now..."
+      ],
+      "house": "gryffindor",
+      "reasoning": "A red dragon embodies pure Gryffindor spirit! The fiery scarlet scales match the house colors perfectly, but it's more than appearance - dragons are legendary symbols of courage and daring. They don't hide in shadows or scheme from afar. A dragon is bold, protective of its territory, and faces challenges head-on with fierce determination. The very fire it breathes represents the passionate, brave heart that defines Gryffindor. Where others flee, the dragon stands its ground. Undeniably Gryffindor!",
+      "confidence": 0.95
+    },
+    {
+      "input": "A cozy garden with sunflowers",
+      "deliberation": [
+        "Well, well... let me see this garden of yours...",
+        "Sunflowers, you say? How delightful!",
+        "These flowers follow the sun with steadfast loyalty...",
+        "The garden is tended with patient, dedicated care...",
+        "I sense earth and growth, hard work without glory...",
+        "A welcoming space where all are nurtured equally...",
+        "Better be..."
+      ],
+      "house": "hufflepuff",
+      "reasoning": "This garden is Hufflepuff through and through! Sunflowers are perhaps the most loyal flowers in nature - they literally turn their faces to follow the sun all day long. The garden itself speaks to patient, dedicated work. It doesn't spring up overnight; it requires consistent toil, fair treatment of each plant, and a nurturing spirit. The warm yellows of sunflowers match Hufflepuff's colors, and gardens are inherently inclusive spaces where diversity thrives together. There's no seeking of glory here, just honest work creating something beautiful and welcoming for all. Pure Hufflepuff dedication!",
+      "confidence": 0.92
+    },
+    {
+      "input": "An ancient library at midnight",
+      "deliberation": [
+        "Fascinating... a library, and at the witching hour no less...",
+        "Someone burning the midnight oil, pursuing knowledge...",
+        "These ancient tomes hold wisdom spanning centuries...",
+        "The stillness speaks to contemplation, to thought...",
+        "Yes, I see it clearly - this is where wit dwells...",
+        "Where minds explore ideas for the pure joy of learning..."
+      ],
+      "house": "ravenclaw",
+      "reasoning": "A midnight library is quintessentially Ravenclaw! The timing alone tells the story - who stays up studying while others sleep? Those driven by curiosity and love of learning for its own sake. Ancient books represent accumulated wisdom and knowledge, the very air Ravenclaws breathe. The quiet solitude shows the independent, contemplative nature valued by the house. This isn't reading for grades or recognition - it's the pure intellectual pursuit that brings Ravenclaws joy. The library is a sacred space where wit and learning reign supreme, and midnight is when the most dedicated seekers are still there, lost in thought and discovery.",
+      "confidence": 0.94
+    },
+    {
+      "input": "A silver chess set in a penthouse",
+      "deliberation": [
+        "Hmm... interesting combination here...",
+        "Chess - the ultimate game of strategy and cunning...",
+        "Each piece must be used with precise calculation...",
+        "And this penthouse... high above the city...",
+        "Speaks to ambition achieved, status attained...",
+        "The silver finish - refined, prestigious...",
+        "Oh yes, I know exactly where this belongs..."
+      ],
+      "house": "slytherin",
+      "reasoning": "This screams Slytherin ambition and cunning! Chess is perhaps the most Slytherin game imaginable - it requires strategic thinking, planning several moves ahead, and using every resource cleverly to achieve victory. The silver color matches Slytherin's house colors and adds an element of sophistication and status. A penthouse setting reinforces the ambition - this is someone who has achieved success and enjoys the heights (literally!) they've reached. The combination shows refined taste, strategic mind, and the determination to rise above. Everything about this scene speaks to cunning folk who use any means to achieve their ends. Definitively Slytherin!",
+      "confidence": 0.93
+    }
+  ]
+}

@@ -1,0 +1,122 @@
+[
+  {
+    "input": "A bright red fire truck with sirens",
+    "house": "gryffindor",
+    "reasoning": "Fire trucks embody Gryffindor values perfectly - they rush toward danger when others flee, protect the community with bold courage, and bear the house colors of scarlet and gold. The siren announces their daring arrival to face whatever emergency awaits."
+  },
+  {
+    "input": "A well-worn gardening trowel",
+    "house": "hufflepuff",
+    "reasoning": "This humble tool speaks to Hufflepuff's core: patient, dedicated work that nurtures growth. It's practical, reliable, and associated with the earth element. The wear shows consistent toil without seeking glory - the very essence of Hufflepuff loyalty to the task."
+  },
+  {
+    "input": "A complex telescope pointing at the stars",
+    "house": "ravenclaw",
+    "reasoning": "The telescope embodies Ravenclaw's thirst for knowledge and understanding of the cosmos. It's an elegant instrument of discovery, allowing minds to explore the mysteries of the universe. Those of wit and learning have always looked skyward."
+  },
+  {
+    "input": "A sleek chess set made of marble",
+    "house": "slytherin",
+    "reasoning": "Chess exemplifies Slytherin cunning - strategic thinking, calculated moves, and ambition to checkmate your opponent. The marble construction adds sophistication and status. Every piece must be used resourcefully to achieve victory."
+  },
+  {
+    "input": "A golden retriever playing with children",
+    "house": "hufflepuff",
+    "reasoning": "The golden retriever is loyalty incarnate - patient, kind, devoted, and inclusive of all. They work hard (retrieving!), treat everyone with warmth, and find pure joy in helping and playing with others."
+  },
+  {
+    "input": "A lightning bolt",
+    "house": "gryffindor",
+    "reasoning": "Lightning is raw, untamed power - bold and daring as it strikes from the sky. It's associated with warriors and heroes throughout mythology, embodies the fire element's passion, and literally lights up the darkness with fearless energy."
+  },
+  {
+    "input": "An owl perched with a book",
+    "house": "ravenclaw",
+    "reasoning": "The owl is Ravenclaw's symbol - wise, observant, and associated with Athena, goddess of wisdom. Paired with a book, this represents the perfect marriage of learning and intelligence that defines the house."
+  },
+  {
+    "input": "A silver dagger with an ornate handle",
+    "house": "slytherin",
+    "reasoning": "This speaks to Slytherin's cunning and ambition. A dagger is strategic - used carefully and precisely. The silver and ornamentation show the house's appreciation for status and refinement. It achieves its ends through cleverness rather than brute force."
+  },
+  {
+    "input": "A cozy coffee shop on a rainy day",
+    "house": "hufflepuff",
+    "reasoning": "This welcoming space embodies Hufflepuff's inclusive, warm nature. It's a community gathering place where all are treated fairly, from the patient barista's hard work to the comforting, earthy aroma of coffee. Everyone belongs here."
+  },
+  {
+    "input": "A rocket launching into space",
+    "house": "gryffindor",
+    "reasoning": "A rocket launch is daring incarnate - pushing boundaries, taking enormous risks, and boldly going where few have gone. It requires courage to strap yourself to controlled explosions and adventure into the unknown. Pure Gryffindor nerve."
+  },
+  {
+    "input": "A library at night, lamp glowing",
+    "house": "ravenclaw",
+    "reasoning": "The quiet library is a sacred space for wit and learning. The solitary lamp suggests someone staying late to pursue knowledge for its own sake - the independent, curious nature that drives Ravenclaws to always seek understanding."
+  },
+  {
+    "input": "A corporate boardroom with a city view",
+    "house": "slytherin",
+    "reasoning": "This is where ambition and leadership play out. Strategic decisions are made, power is consolidated, and cunning folk use any means to achieve their ends. The prestigious view symbolizes the heights Slytherins aspire to reach."
+  },
+  {
+    "input": "A handmade quilt passed through generations",
+    "house": "hufflepuff",
+    "reasoning": "Each stitch represents patient, dedicated work. The quilt serves others with warmth and comfort, requires loyalty to tradition, and shows love through toil. Its worn, practical beauty speaks to Hufflepuff's honest values."
+  },
+  {
+    "input": "A red sports car with racing stripes",
+    "house": "gryffindor",
+    "reasoning": "Speed, boldness, and daring energy. This car doesn't hide - it announces itself with vibrant scarlet. Built for action and adventure, it embodies the impulsive, passionate nature that makes hearts race."
+  },
+  {
+    "input": "A microscope revealing cellular structures",
+    "house": "ravenclaw",
+    "reasoning": "The microscope is a tool of discovery and learning, revealing hidden complexity and beauty. It requires analytical thinking and curiosity about how things truly work - hallmarks of the Ravenclaw mind."
+  },
+  {
+    "input": "A snake coiled around a staff (medical caduceus)",
+    "house": "slytherin",
+    "reasoning": "The serpent is Slytherin's symbol, and here it represents cunning used for healing. The medical profession requires strategic thinking, resourcefulness under pressure, and the ambition to master complex knowledge. The staff itself suggests authority and leadership."
+  },
+  {
+    "input": "A farmer's market on Saturday morning",
+    "house": "hufflepuff",
+    "reasoning": "This gathering celebrates hard work, dedication to craft, and community connection. Vendors are patient and reliable, offering the earth's bounty. Everyone is welcomed fairly, and the atmosphere is warm and inclusive."
+  },
+  {
+    "input": "A phoenix rising from flames",
+    "house": "gryffindor",
+    "reasoning": "The phoenix embodies Gryffindor's fiery courage and resilience. Rising from destruction takes immense bravery, and the creature is literally associated with fire, Dumbledore (a Gryffindor), and renewal through bold transformation."
+  },
+  {
+    "input": "An art studio filled with creative chaos",
+    "house": "ravenclaw",
+    "reasoning": "Creativity and originality flourish here. The studio is where wit meets wisdom, where minds explore beauty and meaning. This space celebrates the artistic, philosophical side of intelligence that Ravenclaw treasures."
+  },
+  {
+    "input": "A chess champion's trophy",
+    "house": "slytherin",
+    "reasoning": "This trophy represents ambition achieved through cunning and strategy. Chess mastery requires planning ahead, using resources cleverly, and the determination to outthink opponents. The trophy itself signals status and success - very Slytherin."
+  },
+  {
+    "input": "A sunflower field in full bloom",
+    "house": "hufflepuff",
+    "reasoning": "Sunflowers are loyal - they literally follow the sun. They grow from patient, earthy dedication, and fields of them create an inclusive, welcoming space. Their warm yellow matches Hufflepuff colors, and they embody natural, unpretentious beauty."
+  },
+  {
+    "input": "A sword pulled from a stone",
+    "house": "gryffindor",
+    "reasoning": "This legendary image screams Gryffindor - it takes daring to even attempt the pull, and the sword itself is a weapon of warriors and heroes. The act proves courage and worthiness to lead brave souls into battle."
+  },
+  {
+    "input": "Ancient ruins being studied by archaeologists",
+    "house": "ravenclaw",
+    "reasoning": "The pursuit of knowledge and understanding of lost civilizations drives this work. It requires analytical minds, creativity to reconstruct the past, and deep curiosity about human wisdom across time. Pure intellectual adventure."
+  },
+  {
+    "input": "A luxury penthouse apartment",
+    "house": "slytherin",
+    "reasoning": "This space represents ambition realized - the heights achieved through determination and cunning. It's exclusive, prestigious, and strategic (high ground, literally). Slytherins appreciate the refinement and status this location provides."
+  }
+]

@@ -1,0 +1,182 @@
+{
+  "gryffindor": {
+    "core_values": ["courage", "bravery", "nerve", "chivalry", "daring"],
+    "personality_traits": {
+      "primary": ["bold", "adventurous", "passionate", "confident"],
+      "secondary": ["impulsive", "reckless", "loyal", "protective"]
+    },
+    "famous_members": [
+      "Harry Potter", "Hermione Granger", "Albus Dumbledore",
+      "Minerva McGonagall", "Godric Gryffindor"
+    ],
+    "house_quote": "Where dwell the brave at heart, their daring, nerve, and chivalry set Gryffindors apart.",
+    "element": "fire",
+    "colors": ["scarlet", "gold"],
+    "animal": "lion",
+    "sorting_criteria": {
+      "for_people": [
+        "stands up for beliefs even when difficult",
+        "takes action rather than overthinking",
+        "protects others without hesitation",
+        "seeks adventure and new experiences",
+        "makes decisions from the heart"
+      ],
+      "for_objects": [
+        "bold design or striking appearance",
+        "serves a protective or empowering purpose",
+        "associated with action or movement",
+        "vibrant or warm colors",
+        "represents courage or heroism"
+      ],
+      "for_places": [
+        "sites of historical bravery or battles",
+        "adventurous destinations",
+        "places that test courage",
+        "locations with bold, dramatic features",
+        "spaces that inspire action"
+      ],
+      "for_concepts": [
+        "involves risk-taking",
+        "challenges the status quo",
+        "passionate movements or causes",
+        "protective ideologies",
+        "action-oriented philosophies"
+      ]
+    }
+  },
+  "hufflepuff": {
+    "core_values": ["loyalty", "patience", "hard work", "fair play", "dedication"],
+    "personality_traits": {
+      "primary": ["kind", "reliable", "modest", "inclusive"],
+      "secondary": ["persistent", "practical", "empathetic", "down-to-earth"]
+    },
+    "famous_members": [
+      "Cedric Diggory", "Newt Scamander", "Nymphadora Tonks",
+      "Pomona Sprout", "Helga Hufflepuff"
+    ],
+    "house_quote": "You might belong in Hufflepuff, where they are just and loyal, those patient Hufflepuffs are true and unafraid of toil.",
+    "element": "earth",
+    "colors": ["yellow", "black"],
+    "animal": "badger",
+    "sorting_criteria": {
+      "for_people": [
+        "values relationships and community",
+        "puts in consistent effort without seeking glory",
+        "treats everyone fairly and kindly",
+        "reliable and trustworthy",
+        "finds joy in helping others"
+      ],
+      "for_objects": [
+        "practical, everyday items",
+        "reliable and durable",
+        "serves others or community",
+        "warm, comforting aesthetic",
+        "associated with nature or earth"
+      ],
+      "for_places": [
+        "welcoming, inclusive spaces",
+        "natural settings or gardens",
+        "community gathering places",
+        "humble but essential locations",
+        "places of honest work"
+      ],
+      "for_concepts": [
+        "emphasizes fairness and equality",
+        "grassroots movements",
+        "steady, sustainable approaches",
+        "community-focused ideas",
+        "values process and dedication"
+      ]
+    }
+  },
+  "ravenclaw": {
+    "core_values": ["intelligence", "wit", "learning", "wisdom", "creativity"],
+    "personality_traits": {
+      "primary": ["analytical", "curious", "original", "perceptive"],
+      "secondary": ["eccentric", "independent", "philosophical", "artistic"]
+    },
+    "famous_members": [
+      "Luna Lovegood", "Cho Chang", "Filius Flitwick",
+      "Gilderoy Lockhart", "Rowena Ravenclaw"
+    ],
+    "house_quote": "Or yet in wise old Ravenclaw, if you've a ready mind, where those of wit and learning, will always find their kind.",
+    "element": "air",
+    "colors": ["blue", "bronze"],
+    "animal": "eagle",
+    "sorting_criteria": {
+      "for_people": [
+        "loves learning for its own sake",
+        "thinks deeply and analytically",
+        "values originality and creativity",
+        "appreciates beauty and artistry",
+        "asks big questions about life and meaning"
+      ],
+      "for_objects": [
+        "intellectually sophisticated or complex",
+        "artistic or aesthetically refined",
+        "innovative or cutting-edge",
+        "used for learning or creation",
+        "elegant design that shows thought"
+      ],
+      "for_places": [
+        "libraries, museums, universities",
+        "sites of innovation or discovery",
+        "places of natural wonder that inspire awe",
+        "artistic or cultural centers",
+        "spaces for contemplation"
+      ],
+      "for_concepts": [
+        "values knowledge and understanding",
+        "philosophical or theoretical",
+        "encourages innovation and creativity",
+        "appreciates complexity and nuance",
+        "seeks truth and wisdom"
+      ]
+    }
+  },
+  "slytherin": {
+    "core_values": ["ambition", "cunning", "resourcefulness", "leadership", "determination"],
+    "personality_traits": {
+      "primary": ["strategic", "driven", "clever", "pragmatic"],
+      "secondary": ["proud", "selective", "self-preserving", "traditional"]
+    },
+    "famous_members": [
+      "Severus Snape", "Horace Slughorn", "Merlin",
+      "Andromeda Tonks", "Salazar Slytherin"
+    ],
+    "house_quote": "Or perhaps in Slytherin, you'll make your real friends, those cunning folk use any means to achieve their ends.",
+    "element": "water",
+    "colors": ["green", "silver"],
+    "animal": "serpent",
+    "sorting_criteria": {
+      "for_people": [
+        "sets ambitious goals and pursues them relentlessly",
+        "thinks strategically and plans ahead",
+        "makes pragmatic decisions",
+        "values tradition and legacy",
+        "natural leader who commands respect"
+      ],
+      "for_objects": [
+        "high status or luxury items",
+        "multi-functional or strategic tools",
+        "sleek, sophisticated design",
+        "associated with power or influence",
+        "helps achieve goals efficiently"
+      ],
+      "for_places": [
+        "seats of power or wealth",
+        "exclusive or prestigious locations",
+        "strategic geographical positions",
+        "places with dark history or complexity",
+        "sites of ambition realized"
+      ],
+      "for_concepts": [
+        "results-oriented approaches",
+        "strategic or political movements",
+        "values achievement and success",
+        "pragmatic over idealistic",
+        "legacy and tradition"
+      ]
+    }
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "name": "sorting-hat-experience",
+  "version": "1.0.0",
+  "description": "An immersive Harry Potter Sorting Hat web experience",
+  "main": "backend/server.js",
+  "scripts": {
+    "start": "node backend/server.js",
+    "dev": "nodemon backend/server.js",
+    "test": "echo \"No tests yet\" && exit 0"
+  },
+  "keywords": [
+    "harry-potter",
+    "sorting-hat",
+    "hogwarts",
+    "claude",
+    "ai"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.36.1",
+    "express": "^4.21.2",
+    "dotenv": "^16.4.7",
+    "multer": "^1.4.5-lts.1",
+    "cors": "^2.8.5"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.9"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}

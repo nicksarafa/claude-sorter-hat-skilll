@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hogwarts Sorting Hat</title>
+
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/houses.css">
+  <link rel="stylesheet" href="css/animations.css">
+</head>
+<body class="hogwarts-theme">
+
+  <!-- Background -->
+  <div class="castle-background"></div>
+
+  <!-- Main Sorting Chamber -->
+  <main class="sorting-chamber">
+
+    <!-- Title -->
+    <header class="header">
+      <h1 class="title">The Sorting Hat</h1>
+      <p class="subtitle">Discover Your House</p>
+    </header>
+
+    <!-- Animated Sorting Hat -->
+    <div class="sorting-hat-container">
+      <div id="sorting-hat" class="sorting-hat">🎩</div>
+
+      <!-- Thought Bubble -->
+      <div class="thought-bubble hidden">
+        <div class="thought-pointer"></div>
+        <p id="hat-thoughts" class="thought-text"></p>
+      </div>
+    </div>
+
+    <!-- Input Area (The Stool) -->
+    <div class="sorting-stool" id="sorting-stool">
+
+      <!-- Drop Zone -->
+      <div id="drop-zone" class="drop-zone">
+        <div class="drop-instructions">
+          <div class="sparkle">✨</div>
+          <p class="large-text">Drag a photo here</p>
+          <p class="small-text">or</p>
+
+          <!-- File Input (hidden) -->
+          <input type="file" id="file-input" accept="image/*" style="display: none;">
+
+          <button id="file-btn" class="magic-button">
+            📁 Choose Photo
+          </button>
+
+          <button id="webcam-btn" class="magic-button">
+            📸 Use Camera
+          </button>
+
+          <button id="text-btn" class="magic-button">
+            ✍️ Describe Something
+          </button>
+        </div>
+      </div>
+
+      <!-- Preview Area -->
+      <div id="preview" class="preview hidden"></div>
+
+      <!-- Text Input Area -->
+      <div id="text-input-area" class="text-input-area hidden">
+        <p class="instruction-text">Tell me what you'd like to sort:</p>
+        <textarea id="text-description" class="description-input" placeholder="A red apple, my favorite toy, a sunny day..."></textarea>
+        <div class="button-group">
+          <button id="text-sort-btn" class="magic-button">Sort It!</button>
+          <button id="text-cancel-btn" class="secondary-button">Cancel</button>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Loading State -->
+    <div id="loading" class="loading hidden">
+      <div class="loading-spinner"></div>
+      <p class="loading-text">The Sorting Hat is thinking...</p>
+    </div>
+
+    <!-- House Reveal -->
+    <div id="house-reveal" class="house-reveal hidden">
+      <div class="house-content">
+        <div class="house-crest" id="house-crest">🏰</div>
+        <h1 class="house-name" id="house-name"></h1>
+        <p class="house-quote" id="house-quote"></p>
+        <div class="reasoning-container">
+          <p class="reasoning" id="reasoning"></p>
+        </div>
+        <button id="sort-again-btn" class="magic-button large">Sort Something Else!</button>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- Audio Controls -->
+  <div class="audio-controls">
+    <button id="mute-btn" class="audio-btn" title="Toggle sound">🔊</button>
+  </div>
+
+  <!-- Credits -->
+  <footer class="credits">
+    <p>Made with magic ✨ | Not affiliated with Warner Bros or J.K. Rowling</p>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.2.4/howler.min.js"></script>
+  <script src="js/audio-manager.js"></script>
+  <script src="js/api-client.js"></script>
+  <script src="js/webcam.js"></script>
+  <script src="js/sorting-ceremony.js"></script>
+  <script src="js/house-reveal.js"></script>
+  <script src="js/app.js"></script>
+
+</body>
+</html>

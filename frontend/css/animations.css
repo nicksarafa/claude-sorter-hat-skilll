@@ -1,0 +1,206 @@
+/* Sorting Hat Animations */
+
+.sorting-hat {
+  animation: gentle-sway 3s ease-in-out infinite;
+}
+
+@keyframes gentle-sway {
+  0%, 100% {
+    transform: rotate(-2deg);
+  }
+  50% {
+    transform: rotate(2deg);
+  }
+}
+
+.sorting-hat.thinking {
+  animation: intense-wobble 0.5s ease-in-out infinite;
+}
+
+@keyframes intense-wobble {
+  0%, 100% {
+    transform: rotate(-5deg) scale(1);
+  }
+  25% {
+    transform: rotate(5deg) scale(1.05);
+  }
+  50% {
+    transform: rotate(-5deg) scale(1);
+  }
+  75% {
+    transform: rotate(5deg) scale(1.05);
+  }
+}
+
+/* Thought Bubble Animation */
+.thought-bubble {
+  animation: fade-in 0.3s ease-out;
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateX(-50%) translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+}
+
+/* House Reveal Entrance */
+.house-reveal {
+  animation: reveal-entrance 0.8s ease-out;
+}
+
+@keyframes reveal-entrance {
+  0% {
+    opacity: 0;
+    transform: scale(0.8) translateY(50px);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+/* House Name Dramatic Entrance */
+.house-name {
+  animation: dramatic-entrance 1s ease-out 0.3s both;
+}
+
+@keyframes dramatic-entrance {
+  0% {
+    opacity: 0;
+    transform: scale(0.5);
+    filter: blur(10px);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+    filter: blur(0);
+  }
+}
+
+/* House Crest Entrance */
+.house-crest {
+  animation: crest-entrance 0.8s ease-out 0.5s both;
+}
+
+@keyframes crest-entrance {
+  0% {
+    opacity: 0;
+    transform: rotateY(90deg);
+  }
+  100% {
+    opacity: 1;
+    transform: rotateY(0deg);
+  }
+}
+
+/* Reasoning Text Typing Effect */
+.reasoning {
+  animation: fade-in-up 0.6s ease-out 0.8s both;
+}
+
+@keyframes fade-in-up {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Button Pulse (for sort again) */
+.magic-button.pulse {
+  animation: button-pulse 2s ease-in-out infinite;
+}
+
+@keyframes button-pulse {
+  0%, 100% {
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  }
+  50% {
+    box-shadow: var(--magic-glow), 0 6px 25px rgba(211, 166, 37, 0.5);
+  }
+}
+
+/* Sparkle Animation */
+@keyframes sparkle-rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.sparkle {
+  display: inline-block;
+  animation: sparkle-pulse 2s ease-in-out infinite, sparkle-rotate 4s linear infinite;
+}
+
+/* Drop Zone Active State */
+.drop-zone.active {
+  animation: pulse-glow 1.5s ease-in-out infinite;
+}
+
+@keyframes pulse-glow {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(211, 166, 37, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 40px rgba(211, 166, 37, 0.6);
+  }
+}
+
+/* Loading Spinner */
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Typewriter Effect for Thoughts */
+.thought-text.typing {
+  overflow: hidden;
+  border-right: 2px solid var(--dark-wood);
+  white-space: nowrap;
+  animation: typing 2s steps(40) 1s both, blink-caret 0.75s step-end infinite;
+}
+
+@keyframes typing {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+@keyframes blink-caret {
+  from, to {
+    border-color: transparent;
+  }
+  50% {
+    border-color: var(--dark-wood);
+  }
+}
+
+/* Smooth Transitions */
+.transition-fade {
+  transition: opacity 0.3s ease-in-out;
+}
+
+.transition-fade.hidden {
+  opacity: 0;
+}

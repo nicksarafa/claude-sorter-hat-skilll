@@ -1,0 +1,37 @@
+# Dependencies
+node_modules/
+package-lock.json
+yarn.lock
+
+# Environment variables
+.env
+.env.local
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Temporary files
+tmp/
+temp/
+*.tmp
+
+# Audio files (can be large)
+# Uncomment if you don't want to track audio files in git
+# frontend/assets/audio/**/*.mp3
+# frontend/assets/audio/**/*.wav
+
+# Build files (if added later)
+dist/
+build/
