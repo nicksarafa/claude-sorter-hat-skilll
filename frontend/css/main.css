@@ -37,6 +37,16 @@
   box-sizing: border-box;
 }
 
+/* Prevent horizontal scroll on all elements */
+* {
+  max-width: 100%;
+}
+
+html, body {
+  max-width: 100vw;
+  overflow-x: hidden;
+}
+
 /* Custom Cursor - Wand */
 body {
   cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"><circle cx="10" cy="10" r="2" fill="%23FFD700"/></svg>'), auto;
@@ -46,13 +56,21 @@ button, .magic-button {
   cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"><circle cx="10" cy="10" r="3" fill="%23FFD700"/><circle cx="10" cy="10" r="5" fill="none" stroke="%23FFD700" stroke-width="1"/></svg>'), pointer;
 }
 
+html {
+  overflow-x: hidden;
+  max-width: 100vw;
+}
+
 body {
   font-family: var(--font-elegant);
   background: #0a0a0a;
   color: var(--parchment);
   overflow-x: hidden;
+  max-width: 100vw;
   min-height: 100vh;
   position: relative;
+  margin: 0;
+  padding: 0;
 }
 
 /* Animated Starry Background */
@@ -60,8 +78,10 @@ body {
   position: fixed;
   top: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
+  width: 100vw;
+  height: 100vh;
+  max-width: 100vw;
+  overflow: hidden;
   background:
     radial-gradient(2px 2px at 20% 30%, white, transparent),
     radial-gradient(2px 2px at 60% 70%, white, transparent),
@@ -126,9 +146,11 @@ body::after {
 .sorting-chamber {
   position: relative;
   z-index: 2;
-  max-width: 1400px;
+  max-width: 100vw;
+  width: 100%;
   margin: 0 auto;
   padding: 40px 20px 80px 20px;
+  overflow-x: hidden;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
