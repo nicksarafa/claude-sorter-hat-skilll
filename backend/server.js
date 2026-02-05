@@ -78,18 +78,18 @@ app.post('/api/sort/image', upload.single('image'), async (req, res) => {
 
     console.log('Sorting complete:', result.house);
 
-    // Transform image into house-themed version
-    console.log('Transforming image to', result.house, 'style...');
-    const transformedImage = await imageTransformer.transformImage(
-      base64Image,
-      req.file.mimetype,
-      result.house
-    );
-
+    // Return original image to display on reveal screen
+    // Note: Image transformation with Imagen requires Vertex AI setup
+    // For now, displaying original image with house styling
     res.json({
       success: true,
       sorting: result,
-      transformedImage: transformedImage
+      transformedImage: {
+        success: true,
+        imageData: base64Image,
+        mimeType: req.file.mimetype,
+        isOriginal: true
+      }
     });
 
   } catch (error) {

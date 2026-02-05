@@ -103,7 +103,7 @@ class HouseReveal {
     // Add title
     const title = document.createElement('p');
     title.className = 'transformed-image-title';
-    title.textContent = 'Your Magical Transformation';
+    title.textContent = transformedImage.isOriginal ? 'What I Sorted' : 'Your Magical Transformation';
 
     imageContainer.appendChild(title);
     imageContainer.appendChild(img);
