@@ -21,7 +21,13 @@ class APIClient {
       }
 
       const data = await response.json();
-      return data.sorting;
+      console.log('API Response:', data);
+      console.log('Transformed Image:', data.transformedImage);
+      // Include transformedImage in the returned data
+      return {
+        ...data.sorting,
+        transformedImage: data.transformedImage
+      };
     } catch (error) {
       console.error('Error sorting image:', error);
       throw error;

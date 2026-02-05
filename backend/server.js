@@ -78,13 +78,10 @@ app.post('/api/sort/image', upload.single('image'), async (req, res) => {
 
     console.log('Sorting complete:', result.house);
 
-    // Generate transformed image using DALL-E
-    // Extract description from Claude's analysis
-    const imageDescription = result.imageDescription || input.description || "The uploaded subject";
-
-    console.log('Generating transformed image...');
+    // Generate transformed image using DALL-E 2 edit (img2img)
+    console.log('Transforming image into Harry Potter universe...');
     const transformedImage = await imageTransformer.transformImage(
-      imageDescription,
+      base64Image,
       result.house
     );
 

@@ -180,8 +180,25 @@
 
     <!-- Loading State -->
     <div id="loading" class="loading hidden">
-      <div class="loading-spinner"></div>
-      <p class="loading-text">The Sorting Hat is thinking...</p>
+      <div class="magical-loading">
+        <div class="wand-container">
+          <div class="wand">✨</div>
+        </div>
+        <div class="spell-circle"></div>
+        <div class="magic-particles">
+          <span class="particle">✨</span>
+          <span class="particle">⭐</span>
+          <span class="particle">✨</span>
+          <span class="particle">⭐</span>
+          <span class="particle">✨</span>
+          <span class="particle">⭐</span>
+        </div>
+      </div>
+      <p class="loading-text magical-text">
+        <span class="spell-word">Revelio!</span>
+        The Sorting Hat is channeling ancient magic...
+      </p>
+      <p class="loading-subtext">Transforming you into the wizarding world ✨</p>
     </div>
 
     <!-- House Reveal -->
@@ -190,6 +207,13 @@
         <div class="house-crest" id="house-crest">🏰</div>
         <h1 class="house-name" id="house-name"></h1>
         <p class="house-quote" id="house-quote"></p>
+
+        <!-- Transformed Image -->
+        <div id="transformed-image-container" class="transformed-image-container hidden">
+          <p class="transformed-image-title">Your Magical Transformation</p>
+          <img id="transformed-image" class="transformed-image" alt="Your sorted item in house style">
+        </div>
+
         <div class="reasoning-container">
           <p class="reasoning" id="reasoning"></p>
         </div>

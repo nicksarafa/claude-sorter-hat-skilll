@@ -209,6 +209,7 @@ class SortingHatApp {
       this.hideLoading();
 
       // Reveal house with transformed image
+      console.log('Passing to reveal - transformedImage:', result.transformedImage);
       await this.houseReveal.reveal(result.house, result.reasoning, result.transformedImage);
 
     } catch (error) {

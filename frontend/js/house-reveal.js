@@ -54,8 +54,12 @@ class HouseReveal {
     this.reasoningElement.textContent = reasoning;
 
     // Display transformed image if available
+    console.log('Reveal received transformedImage:', transformedImage);
     if (transformedImage && transformedImage.success) {
+      console.log('Showing transformed image!');
       this.showTransformedImage(transformedImage);
+    } else {
+      console.log('No transformed image to show:', transformedImage);
     }
 
     // Show reveal
@@ -73,48 +77,38 @@ class HouseReveal {
   hide() {
     this.revealElement.classList.add('hidden');
 
-    // Remove transformed image if exists
-    const existingImage = document.getElementById('transformed-image-container');
-    if (existingImage) {
-      existingImage.remove();
+    // Hide transformed image container
+    const imageContainer = document.getElementById('transformed-image-container');
+    if (imageContainer) {
+      imageContainer.classList.add('hidden');
     }
   }
 
   showTransformedImage(transformedImage) {
     console.log('Displaying transformed house-themed image');
 
-    // Remove existing transformed image if any
-    const existing = document.getElementById('transformed-image-container');
-    if (existing) {
-      existing.remove();
+    // Get the existing container and image element
+    const imageContainer = document.getElementById('transformed-image-container');
+    const img = document.getElementById('transformed-image');
+    const title = imageContainer.querySelector('.transformed-image-title');
+
+    if (!imageContainer || !img) {
+      console.error('Image container elements not found!');
+      return;
     }
 
-    // Create image container
-    const imageContainer = document.createElement('div');
-    imageContainer.id = 'transformed-image-container';
-    imageContainer.className = 'transformed-image-container';
-
-    // Create image element
-    const img = document.createElement('img');
+    // Set the image source
     img.src = `data:${transformedImage.mimeType};base64,${transformedImage.imageData}`;
-    img.alt = 'Your sorted item in house style';
-    img.className = 'transformed-image';
 
-    // Add title
-    const title = document.createElement('p');
-    title.className = 'transformed-image-title';
-    title.textContent = transformedImage.isOriginal ? 'What I Sorted' : 'Your Magical Transformation';
-
-    imageContainer.appendChild(title);
-    imageContainer.appendChild(img);
-
-    // Insert before reasoning container
-    const reasoningContainer = this.revealElement.querySelector('.reasoning-container');
-    if (reasoningContainer) {
-      reasoningContainer.parentNode.insertBefore(imageContainer, reasoningContainer);
-    } else {
-      this.revealElement.querySelector('.house-content').appendChild(imageContainer);
+    // Update title
+    if (title) {
+      title.textContent = transformedImage.isOriginal ? 'What I Sorted' : 'Your Magical Transformation';
     }
+
+    // Show the container
+    imageContainer.classList.remove('hidden');
+
+    console.log('Image displayed successfully!');
   }
 
   createHouseEffects(colors) {

@@ -541,51 +541,182 @@ body::after {
 /* Magical Loading Spell */
 .loading {
   text-align: center;
-  padding: 60px;
+  padding: 80px 20px;
 }
 
-.loading-spinner {
-  width: 100px;
-  height: 100px;
-  margin: 0 auto 30px;
-  border: 8px solid rgba(255, 215, 0, 0.2);
-  border-top: 8px solid var(--magic-gold);
-  border-right: 8px solid var(--magic-gold);
-  border-radius: 50%;
-  animation: spell-cast 1.5s linear infinite;
-  box-shadow:
-    0 0 30px rgba(255, 215, 0, 0.6),
-    inset 0 0 30px rgba(255, 215, 0, 0.3);
+.magical-loading {
   position: relative;
+  width: 200px;
+  height: 200px;
+  margin: 0 auto 40px;
 }
 
-.loading-spinner::before {
-  content: '✨';
+.wand-container {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  font-size: 2rem;
-  animation: sparkle-pulse 1s ease-in-out infinite;
+  animation: wand-wave 2s ease-in-out infinite;
 }
 
-@keyframes spell-cast {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
+.wand {
+  font-size: 4rem;
+  filter: drop-shadow(0 0 20px rgba(255, 215, 0, 1));
+  animation: wand-sparkle 1.5s ease-in-out infinite;
 }
 
-.loading-text {
+.spell-circle {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 150px;
+  height: 150px;
+  border: 4px solid transparent;
+  border-top: 4px solid var(--magic-gold);
+  border-right: 4px solid var(--magic-gold);
+  border-radius: 50%;
+  animation: spell-circle-spin 2s linear infinite;
+  box-shadow: 0 0 40px rgba(255, 215, 0, 0.8);
+}
+
+.spell-circle::before {
+  content: '';
+  position: absolute;
+  top: -4px;
+  left: -4px;
+  right: -4px;
+  bottom: -4px;
+  border: 4px solid transparent;
+  border-bottom: 4px solid rgba(255, 215, 0, 0.5);
+  border-left: 4px solid rgba(255, 215, 0, 0.5);
+  border-radius: 50%;
+  animation: spell-circle-spin 3s linear infinite reverse;
+}
+
+.magic-particles {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+}
+
+.magic-particles .particle {
+  position: absolute;
+  font-size: 1.5rem;
+  animation: particle-float 3s ease-in-out infinite;
+  filter: drop-shadow(0 0 10px rgba(255, 215, 0, 0.8));
+}
+
+.magic-particles .particle:nth-child(1) {
+  top: 10%;
+  left: 50%;
+  animation-delay: 0s;
+}
+
+.magic-particles .particle:nth-child(2) {
+  top: 30%;
+  left: 80%;
+  animation-delay: 0.5s;
+}
+
+.magic-particles .particle:nth-child(3) {
+  top: 70%;
+  left: 90%;
+  animation-delay: 1s;
+}
+
+.magic-particles .particle:nth-child(4) {
+  top: 90%;
+  left: 50%;
+  animation-delay: 1.5s;
+}
+
+.magic-particles .particle:nth-child(5) {
+  top: 70%;
+  left: 10%;
+  animation-delay: 2s;
+}
+
+.magic-particles .particle:nth-child(6) {
+  top: 30%;
+  left: 20%;
+  animation-delay: 2.5s;
+}
+
+@keyframes wand-wave {
+  0%, 100% { transform: translate(-50%, -50%) rotate(-15deg); }
+  50% { transform: translate(-50%, -50%) rotate(15deg); }
+}
+
+@keyframes wand-sparkle {
+  0%, 100% {
+    transform: scale(1);
+    filter: drop-shadow(0 0 20px rgba(255, 215, 0, 1));
+  }
+  50% {
+    transform: scale(1.2);
+    filter: drop-shadow(0 0 30px rgba(255, 215, 0, 1));
+  }
+}
+
+@keyframes spell-circle-spin {
+  0% { transform: translate(-50%, -50%) rotate(0deg); }
+  100% { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+@keyframes particle-float {
+  0%, 100% {
+    opacity: 0;
+    transform: translateY(0) scale(0.5);
+  }
+  50% {
+    opacity: 1;
+    transform: translateY(-30px) scale(1);
+  }
+}
+
+.magical-text {
   font-family: var(--font-handwritten);
-  font-size: 1.6rem;
+  font-size: 1.8rem;
   color: var(--magic-gold);
   font-style: italic;
-  text-shadow: 0 0 10px rgba(255, 215, 0, 0.8);
+  text-shadow: 0 0 15px rgba(255, 215, 0, 0.8);
   animation: text-pulse 2s ease-in-out infinite;
+  margin-bottom: 15px;
+}
+
+.spell-word {
+  display: block;
+  font-family: var(--font-magical);
+  font-size: 2.5rem;
+  color: var(--magic-gold);
+  text-shadow: 0 0 20px rgba(255, 215, 0, 1);
+  margin-bottom: 20px;
+  animation: spell-glow 1.5s ease-in-out infinite;
+}
+
+.loading-subtext {
+  font-family: var(--font-handwritten);
+  font-size: 1.2rem;
+  color: var(--parchment);
+  opacity: 0.8;
+  font-style: italic;
 }
 
 @keyframes text-pulse {
   0%, 100% { opacity: 1; }
-  50% { opacity: 0.6; }
+  50% { opacity: 0.7; }
+}
+
+@keyframes spell-glow {
+  0%, 100% {
+    text-shadow: 0 0 20px rgba(255, 215, 0, 1);
+  }
+  50% {
+    text-shadow: 0 0 40px rgba(255, 215, 0, 1), 0 0 60px rgba(255, 215, 0, 0.6);
+  }
 }
 
 /* Audio Controls - Enchanted */

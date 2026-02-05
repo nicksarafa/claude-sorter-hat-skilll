@@ -1,4 +1,5 @@
 const OpenAI = require('openai');
+const sharp = require('sharp');
 
 class ImageTransformer {
   constructor(apiKey) {
@@ -6,17 +7,17 @@ class ImageTransformer {
 
     // House-specific transformation prompts
     this.housePrompts = {
-      gryffindor: `in the style of a cinematic Harry Potter movie scene. The subject is in the Gryffindor common room, surrounded by: rich scarlet red and gold colors, a cozy roaring fireplace, crimson velvet armchairs, golden lion emblems, Gryffindor banners, warm magical lighting, golden sparkles, heroic and brave atmosphere. Photorealistic, cinematic lighting, high detail, dramatic composition.`,
+      gryffindor: `The person/object in Gryffindor house robes inside the Gryffindor common room. Rich scarlet red and gold colors, cozy roaring fireplace, crimson velvet armchairs, golden lion emblems, Gryffindor banners, warm magical lighting, heroic atmosphere. Cinematic Harry Potter movie style, photorealistic, high detail.`,
 
-      hufflepuff: `in the style of a cinematic Harry Potter movie scene. The subject is in the Hufflepuff common room near the kitchens, surrounded by: warm yellow and black colors, cozy underground space with honey-colored lighting, comfortable round furniture with yellow cushions, badger emblems, Hufflepuff banners, plants and flowers, earthy natural elements, warm and friendly atmosphere. Photorealistic, cinematic lighting, high detail, cozy composition.`,
+      hufflepuff: `The person/object in Hufflepuff house robes inside the Hufflepuff common room. Warm yellow and black colors, cozy underground space, honey-colored lighting, comfortable furniture with yellow cushions, badger emblems, plants and flowers, earthy elements, friendly atmosphere. Cinematic Harry Potter movie style, photorealistic, high detail.`,
 
-      ravenclaw: `in the style of a cinematic Harry Potter movie scene. The subject is in the Ravenclaw tower library, surrounded by: deep blue and bronze colors, tall arched windows showing starry night sky, endless bookshelves with ancient tomes, eagle emblems, Ravenclaw banners, celestial elements like stars and moons, wise and mystical atmosphere, bronze sparkles. Photorealistic, cinematic lighting, high detail, ethereal composition.`,
+      ravenclaw: `The person/object in Ravenclaw house robes inside the Ravenclaw tower. Deep blue and bronze colors, tall windows with starry sky, bookshelves with ancient tomes, bronze eagle emblems, celestial elements, mystical atmosphere. Cinematic Harry Potter movie style, photorealistic, high detail.`,
 
-      slytherin: `in the style of a cinematic Harry Potter movie scene. The subject is in the Slytherin dungeon common room, surrounded by: deep emerald green and silver colors, underwater lake views through windows, dark stone walls with green ambient lighting, silver serpent emblems, Slytherin banners, mysterious shadows, elegant furniture, ambitious and powerful atmosphere. Photorealistic, cinematic lighting, high detail, moody composition.`
+      slytherin: `The person/object in Slytherin house robes inside the Slytherin dungeon. Deep emerald green and silver colors, underwater lake views, dark stone walls, green ambient lighting, silver serpent emblems, mysterious shadows, elegant furniture, powerful atmosphere. Cinematic Harry Potter movie style, photorealistic, high detail.`
     };
   }
 
-  async transformImage(imageDescription, house) {
+  async transformImage(base64Image, house) {
     try {
       const houseKey = house.toLowerCase();
       const housePrompt = this.housePrompts[houseKey];
@@ -25,26 +26,49 @@ class ImageTransformer {
         throw new Error(`Invalid house: ${house}`);
       }
 
-      console.log(`Generating ${house} themed image for: ${imageDescription}`);
+      console.log(`Transforming image into ${house} house style...`);
 
-      // Create the full prompt
-      const fullPrompt = `${imageDescription} ${housePrompt}`;
+      // Convert base64 to buffer
+      const imageBuffer = Buffer.from(base64Image, 'base64');
 
-      console.log('DALL-E prompt:', fullPrompt);
+      // Use sharp to convert to PNG and ensure it's square (DALL-E requirement)
+      const processedImage = await sharp(imageBuffer)
+        .resize(1024, 1024, { fit: 'cover' })
+        .png()
+        .toBuffer();
 
-      // Generate image using DALL-E 3
-      const response = await this.openai.images.generate({
-        model: "dall-e-3",
-        prompt: fullPrompt,
+      // Create a transparent mask (full image transformation)
+      const mask = await sharp({
+        create: {
+          width: 1024,
+          height: 1024,
+          channels: 4,
+          background: { r: 0, g: 0, b: 0, alpha: 0 }
+        }
+      })
+        .png()
+        .toBuffer();
+
+      // Create File objects for the API
+      const imageFile = new File([processedImage], 'image.png', { type: 'image/png' });
+      const maskFile = new File([mask], 'mask.png', { type: 'image/png' });
+
+      console.log('Calling DALL-E 2 edit API...');
+
+      // Use DALL-E 2 edit API
+      const response = await this.openai.images.edit({
+        model: "dall-e-2",
+        image: imageFile,
+        mask: maskFile,
+        prompt: housePrompt,
         n: 1,
         size: "1024x1024",
-        quality: "standard",
         response_format: "b64_json"
       });
 
       const imageData = response.data[0].b64_json;
 
-      console.log('Image generated successfully');
+      console.log('Image transformation complete');
 
       return {
         success: true,
