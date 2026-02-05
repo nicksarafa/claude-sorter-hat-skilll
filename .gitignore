@@ -7,6 +7,9 @@ yarn.lock
 .env
 .env.local
 
+# Claude Code settings (may contain sensitive data)
+.claude/
+
 # Logs
 logs/
 *.log

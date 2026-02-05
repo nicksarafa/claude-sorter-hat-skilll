@@ -3,8 +3,8 @@
 
 const config = {
   // Backend API URL
-  // Currently set to localhost - update to your Railway/Render URL for production
-  API_BASE_URL: 'http://localhost:3000',
+  // Railway deployment
+  API_BASE_URL: 'https://impartial-eagerness-production-9142.up.railway.app',
 
   // App settings
   MAX_IMAGE_SIZE: 10 * 1024 * 1024, // 10MB
