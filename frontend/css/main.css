@@ -588,15 +588,70 @@ body::after {
 /* Magical Credits */
 .credits {
   position: fixed;
-  bottom: 15px;
+  bottom: 10px;
   left: 50%;
   transform: translateX(-50%);
   font-family: var(--font-handwritten);
-  font-size: 0.9rem;
-  color: rgba(244, 231, 215, 0.6);
+  font-size: 1rem;
   text-align: center;
-  z-index: 1;
+  z-index: 100;
+  max-width: 90vw;
+}
+
+.built-with-love {
+  font-size: 1.1rem;
+  color: var(--magic-gold);
+  margin-bottom: 8px;
   font-style: italic;
+  text-shadow: 0 0 10px rgba(255, 215, 0, 0.6);
+}
+
+.learn-more {
+  font-size: 0.95rem;
+  color: var(--parchment);
+  margin-bottom: 8px;
+  font-style: italic;
+}
+
+.disclaimer {
+  font-size: 0.75rem;
+  color: rgba(244, 231, 215, 0.5);
+  font-style: italic;
+}
+
+.light-school-link,
+.workshop-link {
+  color: var(--magic-gold);
+  text-decoration: none;
+  font-weight: 600;
+  position: relative;
+  transition: all 0.3s ease;
+  text-shadow: 0 0 5px rgba(255, 215, 0, 0.5);
+}
+
+.light-school-link::after,
+.workshop-link::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--magic-gold);
+  box-shadow: 0 0 8px var(--magic-gold);
+  transition: width 0.3s ease;
+}
+
+.light-school-link:hover,
+.workshop-link:hover {
+  color: white;
+  text-shadow: 0 0 15px rgba(255, 215, 0, 1);
+  transform: scale(1.05);
+}
+
+.light-school-link:hover::after,
+.workshop-link:hover::after {
+  width: 100%;
 }
 
 /* Preview */
