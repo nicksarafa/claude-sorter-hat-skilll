@@ -735,6 +735,87 @@ body::after {
   flex-wrap: wrap;
 }
 
+/* Connection Notice Banner */
+.connection-notice {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  background: linear-gradient(135deg, rgba(116, 0, 1, 0.95), rgba(73, 0, 1, 0.95));
+  border-bottom: 3px solid var(--magic-gold);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.8);
+  animation: slide-down 0.5s ease-out;
+}
+
+@keyframes slide-down {
+  from {
+    transform: translateY(-100%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+.notice-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 15px 60px 15px 20px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.notice-icon {
+  font-size: 2rem;
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+.notice-text {
+  font-family: var(--font-elegant);
+  font-size: 1rem;
+  color: var(--parchment);
+  margin: 0;
+  flex: 1;
+}
+
+.notice-text strong {
+  color: var(--magic-gold);
+  font-weight: 700;
+}
+
+.notice-link {
+  color: var(--magic-gold);
+  text-decoration: underline;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.notice-link:hover {
+  color: white;
+  text-shadow: 0 0 10px var(--magic-gold);
+}
+
+.dismiss-notice {
+  position: absolute;
+  right: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  color: var(--parchment);
+  font-size: 1.5rem;
+  cursor: pointer;
+  padding: 5px 10px;
+  transition: all 0.3s ease;
+  font-weight: bold;
+}
+
+.dismiss-notice:hover {
+  color: var(--magic-gold);
+  transform: translateY(-50%) scale(1.2);
+}
+
 /* Utility Classes */
 .hidden {
   display: none !important;

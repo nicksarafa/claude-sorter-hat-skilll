@@ -18,6 +18,18 @@
   <!-- Background -->
   <div class="castle-background"></div>
 
+  <!-- Connection Notice (only shows on remote access) -->
+  <div id="connection-notice" class="connection-notice hidden">
+    <div class="notice-content">
+      <span class="notice-icon">⚡</span>
+      <p class="notice-text">
+        <strong>Magical Notice:</strong> This requires a backend server.
+        <a href="https://github.com/your-repo/DEPLOYMENT.md" target="_blank" class="notice-link">Deploy backend</a> or run locally.
+      </p>
+      <button id="dismiss-notice" class="dismiss-notice">✕</button>
+    </div>
+  </div>
+
   <!-- Main Sorting Chamber -->
   <main class="sorting-chamber">
 

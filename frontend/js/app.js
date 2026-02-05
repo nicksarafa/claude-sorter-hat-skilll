@@ -23,6 +23,9 @@ class SortingHatApp {
   init() {
     console.log('Initializing Sorting Hat App...');
 
+    // Check if accessing remotely
+    this.checkRemoteAccess();
+
     // Set up event listeners
     this.setupDropZone();
     this.setupButtons();
@@ -32,6 +35,35 @@ class SortingHatApp {
     this.checkBackend();
 
     console.log('App initialized successfully!');
+  }
+
+  checkRemoteAccess() {
+    // Show notice if on remote domain and backend is localhost
+    const isRemote = window.location.hostname !== 'localhost' &&
+                     window.location.hostname !== '127.0.0.1';
+    const backendIsLocal = window.APP_CONFIG &&
+                          window.APP_CONFIG.API_BASE_URL.includes('localhost');
+
+    if (isRemote && backendIsLocal) {
+      const notice = document.getElementById('connection-notice');
+      if (notice) {
+        notice.classList.remove('hidden');
+
+        // Set up dismiss button
+        const dismissBtn = document.getElementById('dismiss-notice');
+        if (dismissBtn) {
+          dismissBtn.addEventListener('click', () => {
+            notice.classList.add('hidden');
+            localStorage.setItem('dismissedConnectionNotice', 'true');
+          });
+        }
+
+        // Auto-dismiss if previously dismissed
+        if (localStorage.getItem('dismissedConnectionNotice') === 'true') {
+          notice.classList.add('hidden');
+        }
+      }
+    }
   }
 
   async checkBackend() {
@@ -262,19 +294,53 @@ class SortingHatApp {
   }
 
   showError(message) {
-    // Show error in character
-    const errorMessages = [
-      "The magic seems to be unstable...",
-      message || "Something went wrong!",
-      "Please try again!"
-    ];
+    // Detect connection errors
+    const isConnectionError = message && (
+      message.includes('fetch') ||
+      message.includes('network') ||
+      message.includes('Failed to fetch') ||
+      message.includes('NetworkError') ||
+      message.includes('load')
+    );
+
+    let errorMessages;
+
+    if (isConnectionError && window.location.hostname !== 'localhost') {
+      // Remote access attempting to connect to localhost
+      errorMessages = [
+        "Oh my! I sense a disturbance in the magical connection...",
+        "It appears you're accessing this from afar,",
+        "but the backend server is running locally.",
+        "",
+        "To use this remotely, you'll need to:",
+        "1. Deploy the backend to Railway or Render",
+        "2. Update frontend/config.js with the backend URL",
+        "3. Redeploy to Surge",
+        "",
+        "See DEPLOYMENT.md for instructions! ✨"
+      ];
+    } else if (isConnectionError) {
+      errorMessages = [
+        "The magical connection seems broken...",
+        "Make sure the backend server is running:",
+        "npm start",
+        "",
+        "Then try again! ✨"
+      ];
+    } else {
+      errorMessages = [
+        "The magic seems to be unstable...",
+        message || "Something went wrong!",
+        "Please try again!"
+      ];
+    }
 
     let index = 0;
     const showNext = () => {
       if (index < errorMessages.length) {
         this.ceremony.showThought(errorMessages[index]);
         index++;
-        setTimeout(showNext, 2000);
+        setTimeout(showNext, 2500);
       } else {
         this.ceremony.hideThought();
         this.reset();
