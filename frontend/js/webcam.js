@@ -22,7 +22,7 @@ class WebcamManager {
       // Request camera access
       this.stream = await navigator.mediaDevices.getUserMedia({
         video: {
-          facingMode: 'environment', // Use rear camera on mobile
+          facingMode: 'user', // Use front camera on mobile
           width: { ideal: 1280 },
           height: { ideal: 720 }
         }

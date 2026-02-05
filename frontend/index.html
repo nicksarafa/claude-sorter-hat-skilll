@@ -23,8 +23,7 @@
     <div class="notice-content">
       <span class="notice-icon">⚡</span>
       <p class="notice-text">
-        <strong>Magical Notice:</strong> This requires a backend server.
-        <a href="https://github.com/your-repo/DEPLOYMENT.md" target="_blank" class="notice-link">Deploy backend</a> or run locally.
+        <strong>Magical Notice:</strong> This requires a backend server. Built with love ❤️ at <a href="https://ai-skillshop-wheelhouse-lightschool.surge.sh" target="_blank" rel="noopener" class="notice-link">Light School</a>. Learn to build anything by joining our <a href="https://ai-skillshop-wheelhouse-lightschool.surge.sh" target="_blank" rel="noopener" class="notice-link">workshop</a> ✨
       </p>
       <button id="dismiss-notice" class="dismiss-notice">✕</button>
     </div>
@@ -41,7 +40,94 @@
 
     <!-- Animated Sorting Hat -->
     <div class="sorting-hat-container">
-      <div id="sorting-hat" class="sorting-hat">🎩</div>
+      <svg id="sorting-hat" class="sorting-hat" viewBox="0 0 600 420" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="hatGradient" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#6d4f2c"/>
+            <stop offset="100%" stop-color="#3b2613"/>
+          </linearGradient>
+        </defs>
+
+        <!-- Main hat body -->
+        <path
+          d="
+            M350 25
+            C315 35, 300 65, 310 95
+            C325 135, 290 165, 270 205
+            C245 255, 225 300, 210 335
+            C200 360, 225 372, 280 372
+            H430
+            C480 372, 505 360, 495 335
+            C475 290, 445 245, 410 195
+            C375 145, 405 100, 380 70
+            C365 50, 355 35, 350 25
+            Z"
+          fill="url(#hatGradient)"
+          stroke="#2a1a0a"
+          stroke-width="5"
+        />
+
+        <!-- Brim -->
+        <path
+          d="
+            M140 355
+            C210 380, 320 390, 450 380
+            C520 375, 545 355, 530 340
+            C505 315, 440 320, 360 325
+            C270 330, 200 325, 155 330
+            C110 335, 100 345, 140 355
+            Z"
+          fill="#2a1a0a"
+        />
+
+        <!-- Left eye (deep slit) -->
+        <path
+          d="M255 255
+             C275 245, 305 245, 325 255"
+          stroke="#1a0f05"
+          stroke-width="7"
+          fill="none"
+          stroke-linecap="round"
+        />
+
+        <!-- Right eye -->
+        <path
+          d="M345 255
+             C365 245, 395 245, 415 255"
+          stroke="#1a0f05"
+          stroke-width="7"
+          fill="none"
+          stroke-linecap="round"
+        />
+
+        <!-- Mouth (heavy expressive fold) -->
+        <path
+          d="
+            M260 295
+            C300 330, 360 330, 400 295
+            C375 305, 285 305, 260 295
+            Z"
+          fill="#2a1a0a"
+        />
+
+        <!-- Upper face wrinkle -->
+        <path
+          d="M245 235
+             C305 220, 365 220, 425 235"
+          stroke="#4a331b"
+          stroke-width="4"
+          fill="none"
+        />
+
+        <!-- Lower wrinkle -->
+        <path
+          d="M260 325
+             C315 340, 360 340, 405 325"
+          stroke="#4a331b"
+          stroke-width="4"
+          fill="none"
+        />
+      </svg>
 
       <!-- Thought Bubble -->
       <div class="thought-bubble hidden">
