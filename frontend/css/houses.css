@@ -1,99 +1,272 @@
-/* House-Specific Themes */
+/* HOUSE-SPECIFIC MAGICAL THEMES */
 
-/* Gryffindor */
+/* Gryffindor - Bold & Brave */
 .house-reveal.gryffindor {
-  background: linear-gradient(135deg, rgba(116, 0, 1, 0.8), rgba(73, 0, 1, 0.9));
-  border: 3px solid var(--gryffindor-gold);
+  background:
+    linear-gradient(135deg, rgba(116, 0, 1, 0.95) 0%, rgba(73, 0, 1, 0.98) 100%),
+    repeating-linear-gradient(45deg, transparent, transparent 20px, rgba(211, 166, 37, 0.1) 20px, rgba(211, 166, 37, 0.1) 40px);
+  border: 4px solid var(--gryffindor-gold);
+  box-shadow:
+    0 25px 80px rgba(116, 0, 1, 0.8),
+    0 0 60px rgba(211, 166, 37, 0.6),
+    inset 0 0 60px rgba(211, 166, 37, 0.2);
 }
 
 .house-reveal.gryffindor .house-name {
   color: var(--gryffindor-gold);
+  text-shadow:
+    0 0 20px rgba(211, 166, 37, 1),
+    0 0 40px rgba(211, 166, 37, 0.6),
+    3px 3px 6px rgba(0, 0, 0, 0.9);
 }
 
-.house-reveal.gryffindor .house-quote {
-  color: var(--gryffindor-gold);
-}
-
+.house-reveal.gryffindor .house-quote,
 .house-reveal.gryffindor .reasoning {
   color: var(--parchment);
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
 }
 
-/* Hufflepuff */
+.house-reveal.gryffindor::before {
+  content: '🦁';
+  position: absolute;
+  font-size: 15rem;
+  opacity: 0.08;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Hufflepuff - Loyal & True */
 .house-reveal.hufflepuff {
-  background: linear-gradient(135deg, rgba(0, 0, 0, 0.8), rgba(40, 40, 40, 0.9));
-  border: 3px solid var(--hufflepuff);
+  background:
+    linear-gradient(135deg, rgba(0, 0, 0, 0.95) 0%, rgba(40, 40, 40, 0.98) 100%),
+    repeating-linear-gradient(45deg, transparent, transparent 20px, rgba(255, 216, 0, 0.1) 20px, rgba(255, 216, 0, 0.1) 40px);
+  border: 4px solid var(--hufflepuff);
+  box-shadow:
+    0 25px 80px rgba(0, 0, 0, 0.9),
+    0 0 60px rgba(255, 216, 0, 0.6),
+    inset 0 0 60px rgba(255, 216, 0, 0.2);
 }
 
 .house-reveal.hufflepuff .house-name {
   color: var(--hufflepuff);
+  text-shadow:
+    0 0 20px rgba(255, 216, 0, 1),
+    0 0 40px rgba(255, 216, 0, 0.6),
+    3px 3px 6px rgba(0, 0, 0, 0.9);
 }
 
-.house-reveal.hufflepuff .house-quote {
-  color: var(--hufflepuff);
-}
-
+.house-reveal.hufflepuff .house-quote,
 .house-reveal.hufflepuff .reasoning {
   color: var(--parchment);
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
 }
 
-/* Ravenclaw */
+.house-reveal.hufflepuff::before {
+  content: '🦡';
+  position: absolute;
+  font-size: 15rem;
+  opacity: 0.08;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Ravenclaw - Wise & Witty */
 .house-reveal.ravenclaw {
-  background: linear-gradient(135deg, rgba(14, 26, 64, 0.8), rgba(10, 20, 50, 0.9));
-  border: 3px solid var(--ravenclaw-bronze);
+  background:
+    linear-gradient(135deg, rgba(14, 26, 64, 0.95) 0%, rgba(10, 20, 50, 0.98) 100%),
+    repeating-linear-gradient(45deg, transparent, transparent 20px, rgba(148, 107, 45, 0.1) 20px, rgba(148, 107, 45, 0.1) 40px);
+  border: 4px solid var(--ravenclaw-bronze);
+  box-shadow:
+    0 25px 80px rgba(14, 26, 64, 0.9),
+    0 0 60px rgba(148, 107, 45, 0.6),
+    inset 0 0 60px rgba(148, 107, 45, 0.2);
 }
 
 .house-reveal.ravenclaw .house-name {
   color: var(--ravenclaw-bronze);
+  text-shadow:
+    0 0 20px rgba(148, 107, 45, 1),
+    0 0 40px rgba(148, 107, 45, 0.6),
+    3px 3px 6px rgba(0, 0, 0, 0.9);
 }
 
-.house-reveal.ravenclaw .house-quote {
-  color: var(--ravenclaw-bronze);
-}
-
+.house-reveal.ravenclaw .house-quote,
 .house-reveal.ravenclaw .reasoning {
   color: var(--parchment);
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
 }
 
-/* Slytherin */
+.house-reveal.ravenclaw::before {
+  content: '🦅';
+  position: absolute;
+  font-size: 15rem;
+  opacity: 0.08;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Slytherin - Cunning & Ambitious */
 .house-reveal.slytherin {
-  background: linear-gradient(135deg, rgba(26, 71, 42, 0.8), rgba(15, 50, 30, 0.9));
-  border: 3px solid var(--slytherin-silver);
+  background:
+    linear-gradient(135deg, rgba(26, 71, 42, 0.95) 0%, rgba(15, 50, 30, 0.98) 100%),
+    repeating-linear-gradient(45deg, transparent, transparent 20px, rgba(170, 170, 170, 0.1) 20px, rgba(170, 170, 170, 0.1) 40px);
+  border: 4px solid var(--slytherin-silver);
+  box-shadow:
+    0 25px 80px rgba(26, 71, 42, 0.9),
+    0 0 60px rgba(170, 170, 170, 0.6),
+    inset 0 0 60px rgba(170, 170, 170, 0.2);
 }
 
 .house-reveal.slytherin .house-name {
   color: var(--slytherin-silver);
+  text-shadow:
+    0 0 20px rgba(170, 170, 170, 1),
+    0 0 40px rgba(170, 170, 170, 0.6),
+    3px 3px 6px rgba(0, 0, 0, 0.9);
 }
 
-.house-reveal.slytherin .house-quote {
-  color: var(--slytherin-silver);
-}
-
+.house-reveal.slytherin .house-quote,
 .house-reveal.slytherin .reasoning {
   color: var(--parchment);
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
 }
 
-/* Particle Effects */
+.house-reveal.slytherin::before {
+  content: '🐍';
+  position: absolute;
+  font-size: 15rem;
+  opacity: 0.08;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Enhanced Particle Effects */
 .particle {
   position: fixed;
-  width: 10px;
-  height: 10px;
+  width: 12px;
+  height: 12px;
   border-radius: 50%;
   pointer-events: none;
   z-index: 1000;
   animation: float-up 3s ease-out forwards;
+  box-shadow: 0 0 10px currentColor;
 }
 
 @keyframes float-up {
   0% {
     top: 100%;
     opacity: 1;
-    transform: translateY(0) rotate(0deg);
+    transform: translateY(0) rotate(0deg) scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: translateY(-50vh) rotate(180deg) scale(1.2);
   }
   100% {
     top: -10%;
     opacity: 0;
-    transform: translateY(-100px) rotate(360deg);
+    transform: translateY(-100vh) rotate(360deg) scale(0.5);
   }
 }
 
-/* House-specific particle colors are set via JavaScript */
+/* Magical Shimmer on House Names */
+.house-name {
+  animation: shimmer 3s ease-in-out infinite;
+  position: relative;
+  z-index: 1;
+}
+
+@keyframes shimmer {
+  0%, 100% {
+    filter: brightness(1);
+  }
+  50% {
+    filter: brightness(1.3);
+  }
+}
+
+/* House Crest Animation */
+.house-crest {
+  animation: crest-reveal 2s ease-out;
+  position: relative;
+  z-index: 1;
+}
+
+@keyframes crest-reveal {
+  0% {
+    opacity: 0;
+    transform: scale(0) rotateY(180deg);
+  }
+  50% {
+    transform: scale(1.2) rotateY(90deg);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) rotateY(0deg);
+  }
+}
+
+/* Reasoning Box Enhancement */
+.reasoning-container {
+  background: rgba(244, 231, 215, 0.15);
+  padding: 30px;
+  border-radius: 20px;
+  margin-bottom: 35px;
+  border: 2px solid rgba(255, 215, 0, 0.3);
+  box-shadow: inset 0 0 30px rgba(0, 0, 0, 0.3);
+  position: relative;
+  z-index: 1;
+}
+
+.reasoning {
+  font-family: var(--font-handwritten);
+  font-size: 1.2rem;
+  line-height: 1.9;
+  text-align: left;
+  font-style: italic;
+}
+
+/* House Quote Styling */
+.house-quote {
+  font-family: var(--font-handwritten);
+  font-size: 1.4rem;
+  font-style: italic;
+  margin-bottom: 35px;
+  opacity: 0.95;
+  line-height: 1.8;
+  position: relative;
+  z-index: 1;
+  padding: 0 20px;
+}
+
+.house-quote::before,
+.house-quote::after {
+  content: '"';
+  font-size: 2.5rem;
+  opacity: 0.5;
+  position: relative;
+  top: 10px;
+}
+
+/* House Content Wrapper */
+.house-content {
+  position: relative;
+  z-index: 1;
+}
+
+.house-reveal {
+  position: relative;
+  overflow: hidden;
+}
