@@ -1,122 +1,66 @@
-const { GoogleGenerativeAI } = require('@google/generative-ai');
+const OpenAI = require('openai');
 
 class ImageTransformer {
   constructor(apiKey) {
-    this.genAI = new GoogleGenerativeAI(apiKey);
+    this.openai = new OpenAI({ apiKey });
 
     // House-specific transformation prompts
     this.housePrompts = {
-      gryffindor: `Transform this image into a cinematic Harry Potter scene in Gryffindor house style.
-        The subject should be depicted in the Hogwarts Gryffindor common room or tower, surrounded by:
-        - Rich scarlet red and gold colors
-        - Cozy fireplace with roaring flames
-        - Crimson velvet armchairs and tapestries
-        - Lion emblems and Gryffindor banners
-        - Warm, brave, heroic atmosphere
-        - Golden magical sparkles and courage-themed elements
-        - Cinematic lighting with warm red-gold tones
-        Style: Photorealistic, cinematic, Harry Potter film aesthetic, dramatic lighting, high detail, 4K quality`,
+      gryffindor: `in the style of a cinematic Harry Potter movie scene. The subject is in the Gryffindor common room, surrounded by: rich scarlet red and gold colors, a cozy roaring fireplace, crimson velvet armchairs, golden lion emblems, Gryffindor banners, warm magical lighting, golden sparkles, heroic and brave atmosphere. Photorealistic, cinematic lighting, high detail, dramatic composition.`,
 
-      hufflepuff: `Transform this image into a cinematic Harry Potter scene in Hufflepuff house style.
-        The subject should be depicted in the Hogwarts Hufflepuff common room near the kitchens, surrounded by:
-        - Warm yellow and black colors
-        - Cozy underground space with honey-colored lighting
-        - Comfortable round furniture with yellow cushions
-        - Badger emblems and Hufflepuff banners
-        - Plants, flowers, and earthy natural elements
-        - Warm, friendly, loyal atmosphere
-        - Golden wheat fields or garden elements
-        - Cinematic lighting with warm honey tones
-        Style: Photorealistic, cinematic, Harry Potter film aesthetic, cozy lighting, high detail, 4K quality`,
+      hufflepuff: `in the style of a cinematic Harry Potter movie scene. The subject is in the Hufflepuff common room near the kitchens, surrounded by: warm yellow and black colors, cozy underground space with honey-colored lighting, comfortable round furniture with yellow cushions, badger emblems, Hufflepuff banners, plants and flowers, earthy natural elements, warm and friendly atmosphere. Photorealistic, cinematic lighting, high detail, cozy composition.`,
 
-      ravenclaw: `Transform this image into a cinematic Harry Potter scene in Ravenclaw house style.
-        The subject should be depicted in the Hogwarts Ravenclaw tower library, surrounded by:
-        - Deep blue and bronze colors
-        - Tall arched windows with starry night sky views
-        - Endless bookshelves filled with ancient tomes
-        - Eagle emblems and Ravenclaw banners
-        - Celestial elements like stars, moons, constellations
-        - Wise, intellectual, mystical atmosphere
-        - Bronze magical sparkles and wisdom-themed elements
-        - Cinematic lighting with cool blue-bronze tones
-        Style: Photorealistic, cinematic, Harry Potter film aesthetic, ethereal lighting, high detail, 4K quality`,
+      ravenclaw: `in the style of a cinematic Harry Potter movie scene. The subject is in the Ravenclaw tower library, surrounded by: deep blue and bronze colors, tall arched windows showing starry night sky, endless bookshelves with ancient tomes, eagle emblems, Ravenclaw banners, celestial elements like stars and moons, wise and mystical atmosphere, bronze sparkles. Photorealistic, cinematic lighting, high detail, ethereal composition.`,
 
-      slytherin: `Transform this image into a cinematic Harry Potter scene in Slytherin house style.
-        The subject should be depicted in the Hogwarts Slytherin dungeon common room, surrounded by:
-        - Deep green and silver colors
-        - Underwater views through dungeon windows (lake)
-        - Dark stone walls with green ambient lighting
-        - Serpent emblems and Slytherin banners
-        - Mysterious shadows and elegant furniture
-        - Ambitious, cunning, powerful atmosphere
-        - Silver magical sparkles and snake-themed elements
-        - Cinematic lighting with emerald-silver tones
-        Style: Photorealistic, cinematic, Harry Potter film aesthetic, moody dramatic lighting, high detail, 4K quality`
+      slytherin: `in the style of a cinematic Harry Potter movie scene. The subject is in the Slytherin dungeon common room, surrounded by: deep emerald green and silver colors, underwater lake views through windows, dark stone walls with green ambient lighting, silver serpent emblems, Slytherin banners, mysterious shadows, elegant furniture, ambitious and powerful atmosphere. Photorealistic, cinematic lighting, high detail, moody composition.`
     };
   }
 
-  async transformImage(imageBase64, mimeType, house) {
+  async transformImage(imageDescription, house) {
     try {
       const houseKey = house.toLowerCase();
-      const prompt = this.housePrompts[houseKey];
+      const housePrompt = this.housePrompts[houseKey];
 
-      if (!prompt) {
+      if (!housePrompt) {
         throw new Error(`Invalid house: ${house}`);
       }
 
-      console.log(`Transforming image for house: ${house}`);
+      console.log(`Generating ${house} themed image for: ${imageDescription}`);
 
-      // Use Gemini 3 Pro Image model (Nano Banana Pro)
-      const model = this.genAI.getGenerativeModel({
-        model: 'gemini-3-pro-image-preview'
+      // Create the full prompt
+      const fullPrompt = `${imageDescription} ${housePrompt}`;
+
+      console.log('DALL-E prompt:', fullPrompt);
+
+      // Generate image using DALL-E 3
+      const response = await this.openai.images.generate({
+        model: "dall-e-3",
+        prompt: fullPrompt,
+        n: 1,
+        size: "1024x1024",
+        quality: "standard",
+        response_format: "b64_json"
       });
 
-      // Prepare the image data
-      const imageParts = [{
-        inlineData: {
-          data: imageBase64,
-          mimeType: mimeType
-        }
-      }];
+      const imageData = response.data[0].b64_json;
 
-      // Generate the house-themed image
-      const result = await model.generateContent([
-        prompt,
-        ...imageParts
-      ]);
+      console.log('Image generated successfully');
 
-      const response = await result.response;
-
-      // Extract the generated image
-      if (response.candidates && response.candidates[0]) {
-        const candidate = response.candidates[0];
-
-        // Nano Banana Pro returns image in parts
-        if (candidate.content && candidate.content.parts) {
-          for (const part of candidate.content.parts) {
-            if (part.inlineData) {
-              return {
-                success: true,
-                imageData: part.inlineData.data,
-                mimeType: part.inlineData.mimeType || 'image/png'
-              };
-            }
-          }
-        }
-      }
-
-      throw new Error('No image generated in response');
+      return {
+        success: true,
+        imageData: imageData,
+        mimeType: 'image/png',
+        isOriginal: false
+      };
 
     } catch (error) {
-      console.error('Image transformation error:', error);
+      console.error('Image transformation error:', error.message);
 
-      // Return original image if transformation fails
+      // Return error but don't crash
       return {
         success: false,
         error: error.message,
-        fallback: true,
-        imageData: imageBase64,
-        mimeType: mimeType
+        isOriginal: true
       };
     }
   }

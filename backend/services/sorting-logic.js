@@ -102,6 +102,7 @@ Return a JSON object with:
   ],
   "house": "gryffindor|hufflepuff|ravenclaw|slytherin",
   "reasoning": "A paragraph explaining why this house is perfect, written in the Sorting Hat's voice. Be specific about which traits or characteristics led to this decision. Make it personal and insightful.",
+  "imageDescription": "A concise description of what you see in the image (if image was provided), for example: 'a golden retriever puppy' or 'a red sports car' or 'a person wearing glasses'. Keep it simple and clear.",
   "confidence": 0.7,
   "needsClarification": false
 }

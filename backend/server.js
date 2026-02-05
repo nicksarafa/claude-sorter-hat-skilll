@@ -12,7 +12,7 @@ const PORT = process.env.PORT || 3000;
 
 // Initialize services
 const sortingHat = new SortingHatAI(process.env.ANTHROPIC_API_KEY);
-const imageTransformer = new ImageTransformer(process.env.GOOGLE_API_KEY);
+const imageTransformer = new ImageTransformer(process.env.OPENAI_API_KEY);
 
 // Middleware
 app.use(cors());
@@ -78,18 +78,27 @@ app.post('/api/sort/image', upload.single('image'), async (req, res) => {
 
     console.log('Sorting complete:', result.house);
 
-    // Return original image to display on reveal screen
-    // Note: Image transformation with Imagen requires Vertex AI setup
-    // For now, displaying original image with house styling
+    // Generate transformed image using DALL-E
+    // Extract description from Claude's analysis
+    const imageDescription = result.imageDescription || input.description || "The uploaded subject";
+
+    console.log('Generating transformed image...');
+    const transformedImage = await imageTransformer.transformImage(
+      imageDescription,
+      result.house
+    );
+
+    // If transformation failed, return original image
+    if (!transformedImage.success) {
+      transformedImage.imageData = base64Image;
+      transformedImage.mimeType = req.file.mimetype;
+      transformedImage.isOriginal = true;
+    }
+
     res.json({
       success: true,
       sorting: result,
-      transformedImage: {
-        success: true,
-        imageData: base64Image,
-        mimeType: req.file.mimetype,
-        isOriginal: true
-      }
+      transformedImage: transformedImage
     });
 
   } catch (error) {
