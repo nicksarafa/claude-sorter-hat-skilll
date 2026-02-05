@@ -33,7 +33,7 @@ class HouseReveal {
     };
   }
 
-  async reveal(house, reasoning) {
+  async reveal(house, reasoning, transformedImage = null) {
     const houseKey = house.toLowerCase();
     const data = this.houseData[houseKey];
 
@@ -53,6 +53,11 @@ class HouseReveal {
     this.houseCrestElement.textContent = data.crest;
     this.reasoningElement.textContent = reasoning;
 
+    // Display transformed image if available
+    if (transformedImage && transformedImage.success) {
+      this.showTransformedImage(transformedImage);
+    }
+
     // Show reveal
     this.revealElement.classList.remove('hidden');
 
@@ -67,6 +72,49 @@ class HouseReveal {
 
   hide() {
     this.revealElement.classList.add('hidden');
+
+    // Remove transformed image if exists
+    const existingImage = document.getElementById('transformed-image-container');
+    if (existingImage) {
+      existingImage.remove();
+    }
+  }
+
+  showTransformedImage(transformedImage) {
+    console.log('Displaying transformed house-themed image');
+
+    // Remove existing transformed image if any
+    const existing = document.getElementById('transformed-image-container');
+    if (existing) {
+      existing.remove();
+    }
+
+    // Create image container
+    const imageContainer = document.createElement('div');
+    imageContainer.id = 'transformed-image-container';
+    imageContainer.className = 'transformed-image-container';
+
+    // Create image element
+    const img = document.createElement('img');
+    img.src = `data:${transformedImage.mimeType};base64,${transformedImage.imageData}`;
+    img.alt = 'Your sorted item in house style';
+    img.className = 'transformed-image';
+
+    // Add title
+    const title = document.createElement('p');
+    title.className = 'transformed-image-title';
+    title.textContent = 'Your Magical Transformation';
+
+    imageContainer.appendChild(title);
+    imageContainer.appendChild(img);
+
+    // Insert before reasoning container
+    const reasoningContainer = this.revealElement.querySelector('.reasoning-container');
+    if (reasoningContainer) {
+      reasoningContainer.parentNode.insertBefore(imageContainer, reasoningContainer);
+    } else {
+      this.revealElement.querySelector('.house-content').appendChild(imageContainer);
+    }
   }
 
   createHouseEffects(colors) {

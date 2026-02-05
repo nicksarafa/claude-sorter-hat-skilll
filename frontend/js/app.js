@@ -208,8 +208,8 @@ class SortingHatApp {
       // Hide loading
       this.hideLoading();
 
-      // Reveal house
-      await this.houseReveal.reveal(result.house, result.reasoning);
+      // Reveal house with transformed image
+      await this.houseReveal.reveal(result.house, result.reasoning, result.transformedImage);
 
     } catch (error) {
       console.error('Sorting failed:', error);

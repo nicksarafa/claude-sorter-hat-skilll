@@ -5,12 +5,14 @@ const path = require('path');
 require('dotenv').config();
 
 const SortingHatAI = require('./services/sorting-logic');
+const ImageTransformer = require('./services/image-transformer');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-// Initialize Sorting Hat AI
+// Initialize services
 const sortingHat = new SortingHatAI(process.env.ANTHROPIC_API_KEY);
+const imageTransformer = new ImageTransformer(process.env.GOOGLE_API_KEY);
 
 // Middleware
 app.use(cors());
@@ -74,9 +76,20 @@ app.post('/api/sort/image', upload.single('image'), async (req, res) => {
     // Perform sorting
     const result = await sortingHat.analyzeAndSort(input);
 
+    console.log('Sorting complete:', result.house);
+
+    // Transform image into house-themed version
+    console.log('Transforming image to', result.house, 'style...');
+    const transformedImage = await imageTransformer.transformImage(
+      base64Image,
+      req.file.mimetype,
+      result.house
+    );
+
     res.json({
       success: true,
-      sorting: result
+      sorting: result,
+      transformedImage: transformedImage
     });
 
   } catch (error) {
