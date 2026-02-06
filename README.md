@@ -1,5 +1,6 @@
 # 🎩 Hogwarts Sorting Hat Experience
 
+
 An immersive, magical web application where users can sort **anything** into Hogwarts houses using AI-powered analysis. Features an animated Sorting Hat with personality, background music, sound effects, and support for images, webcam capture, and text descriptions.
 
 ## ✨ Features
